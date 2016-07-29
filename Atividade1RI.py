@@ -10,7 +10,7 @@ def limpaCaracteres(linha_suja):        # Função que usa expressões regulares pa
     linha_suja = re.sub("&.{2,4};", " ", linha_suja)
     linha_suja = re.sub("\\{\\{!\\}\\}", " ", linha_suja)
     linha_suja = re.sub("{{.*?}}", " ", linha_suja)
-    linha_suja = re.sub("<.*?>", " ", linha_suja)
+    linha_suja = re.sub("<docno>", " <docno> ", linha_suja)
     linha_suja = re.sub("ref", " ", linha_suja)
     linha_suja = re.sub("[\s,.:;=!?]", " ", linha_suja)
     linha_suja = re.sub("[\/]", " ", linha_suja)
@@ -20,14 +20,13 @@ def limpaCaracteres(linha_suja):        # Função que usa expressões regulares pa
     linha_suja = re.sub("[\{*]", " ", linha_suja)
     linha_suja = re.sub("[\}*]", " ", linha_suja)
     linha_suja = re.sub("[\'*#()_]", " ", linha_suja)
-    linha_suja = re.sub("[\d+]", " ", linha_suja)
     linha_suja = re.sub("jpg", " ", linha_suja)
     return linha_suja
 
-linha = ' '
-while(linha != ''):         # Lendo cada linha do arquivo original e depois escrevendo em arquivo separado
-    linha = arquivo_original.readline()
-    linhaLimpa = limpaCaracteres(linha)
+linha_atual = ' '
+while(linha_atual != ''):         # Lendo cada linha do arquivo original e depois escrevendo em arquivo separado
+    linha_atual = arquivo_original.readline()
+    linhaLimpa = limpaCaracteres(linha_atual)
     arquivo_limpo.writelines(linhaLimpa + "\n")
     print linhaLimpa
 
@@ -46,14 +45,17 @@ def indexaPalavraDicion(palavra, dicionario, indice):   # Função que indexa o in
     else:
         dicionario[palavra] = [indice]
 
-num_linha = 0
-linha = ' '
-while(linha != ''):            # Lê cada linha do arquivo de entrada e depois indexa no dicionario
-    linha = arquivo_limpo.readline()
-    for pal in linha.split():
-        print num_linha
-        indexaPalavraDicion(pal, dicion, num_linha)
-    num_linha += 1
+num_documento = 0
+linha_atual = ' '                 # ultima linha lida
+while(linha_atual != ''):            # Lê cada linha do arquivo de entrada e depois indexa no dicionario
+    linha_atual = arquivo_limpo.readline()
+    if linha_atual.split().__contains__('<docno>'):
+        num_documento += 1
+        print num_documento
+    for pal in linha_atual.split():
+        indexaPalavraDicion(pal, dicion, num_documento)
+
+
 
 
 for i in dicion.iterkeys():     # Itera sobre o dicionario e escreve os indices invertidos no arquivo
