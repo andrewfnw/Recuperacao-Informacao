@@ -24,7 +24,7 @@ while(linha_atual != ''):            # Lê cada linha do arquivo de entrada e dep
         indexaPalavraDicion(palavra, dicionIndiceInvertido, num_documento)
 arquivo_limpo.close()
 
-arquivo_indice_invertido.write( "Palavra | Numero Indices | Indices documentos " + "\n" )
+arquivo_indice_invertido.write( "Palavra | Numero de documentos em que a palavra aparece | Indices documentos " + "\n" )
 for i in dicionIndiceInvertido.iterkeys():     # Itera sobre o dicionario e escreve os indices invertidos no arquivo
     arquivo_indice_invertido.writelines(str(i) + " : " + str(len(dicionIndiceInvertido.get(i))) + " : " + str(dicionIndiceInvertido.get(i)) + "\n")
 
@@ -51,6 +51,7 @@ def conta_palavras_documento(pal, num_doc):
 def pesquisa(query, dicionario_indice_invertido, total_documentos):
     palavras_chave = query.split()
     lista_resposta = []
+    lista_top5 = []
     k = 1.2
     for palavra_chave in palavras_chave:
         if dicionario_indice_invertido.has_key(palavra_chave):
@@ -66,14 +67,16 @@ def pesquisa(query, dicionario_indice_invertido, total_documentos):
                 else:
                     lista_resposta.append((doc, resposta))
     lista_ordenada = sorted(lista_resposta,key=lambda resposta: resposta[1], reverse=True)
-    return lista_ordenada
+    for i in range(5):
+        lista_top5.insert(i, lista_ordenada.pop(i))
+    return lista_top5
 
 print "Resultado da consulta primeira guerra mundial: " + str(pesquisa("primeira guerra mundial", dicionIndiceInvertido, num_documento))
 
-print "Resultado da consulta espaço e tempo: " pesquisa("espaço e tempo", dicionIndiceInvertido, num_documento)
+print "Resultado da consulta espaço e tempo: " +  str(pesquisa("espaço e tempo", dicionIndiceInvertido, num_documento))
 
-print "Resultado da consulta minha terra tem palmeiras onde canta o sabiá: " pesquisa("minha terra tem palmeiras onde canta o sabiá", dicionIndiceInvertido, num_documento)
+print "Resultado da consulta minha terra tem palmeiras onde canta o sabiá: " + str(pesquisa("minha terra tem palmeiras onde canta o sabiá", dicionIndiceInvertido, num_documento))
 
-print "Resultado da consulta grupo raça negra: " pesquisa("grupo raça negra", dicionIndiceInvertido, num_documento)
+print "Resultado da consulta grupo raça negra: " +  str(pesquisa("grupo raça negra", dicionIndiceInvertido, num_documento))
 
 arquivo_indice_invertido.close()

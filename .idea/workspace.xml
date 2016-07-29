@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6c714797-0683-479f-ac8a-5bca666a134f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Atividade1RI.py" afterPath="$PROJECT_DIR$/Atividade1RI.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Atividade1Check2RI.py" afterPath="$PROJECT_DIR$/Atividade1Check2RI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arquivo-indice-invertido.txt" afterPath="$PROJECT_DIR$/arquivo-indice-invertido.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arquivo-limpo.txt" afterPath="$PROJECT_DIR$/arquivo-limpo.txt" />
     </list>
     <ignored path="atividade1RI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="Atividade1Check2RI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Atividade1Check2RI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+            <state relative-caret-position="309">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
               <folding>
                 <element signature="e#26#37#0" expanded="true" />
               </folding>
@@ -357,7 +356,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20863836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -459,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Atividade1Check2RI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+        <state relative-caret-position="309">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
           <folding>
             <element signature="e#26#37#0" expanded="true" />
           </folding>
