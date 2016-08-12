@@ -14,15 +14,27 @@ def indexaPalavraDicion(palavra, dicionario, indice):   # Função que indexa o in
     else:
         dicionario[palavra] = [indice]
 
+def escreve_documento(texto ,num_documento):
+    novo_doc = open("doc " + str(num_documento) + ".txt", 'w')
+    novo_doc.write(texto)
+    novo_doc.close()
+
 num_documento = 0
 linha_atual = ' '                 # ultima linha lida
+acumulador_documento = ''
 while(linha_atual != ''):            # Lê cada linha do arquivo de entrada e depois indexa no dicionario
     linha_atual = arquivo_limpo.readline()
     if linha_atual.split().__contains__('<docno>'):
         num_documento += 1
+        escreve_documento(acumulador_documento, num_documento - 1)
+        print " doc  " + str(num_documento) + " criado."
+        acumulador_documento = ''
     for palavra in linha_atual.split():
         indexaPalavraDicion(palavra, dicionIndiceInvertido, num_documento)
+    acumulador_documento += str(linha_atual)
 arquivo_limpo.close()
+
+
 
 arquivo_indice_invertido.write( "Palavra | Numero de documentos em que a palavra aparece | Indices documentos " + "\n" )
 for i in dicionIndiceInvertido.iterkeys():     # Itera sobre o dicionario e escreve os indices invertidos no arquivo
